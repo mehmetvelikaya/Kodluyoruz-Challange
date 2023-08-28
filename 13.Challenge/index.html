@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asal Sayı Kontrolü</title>
+</head>
+<body>
+    <h1>Asal Sayı Kontrolü</h1>
+    <label for="numberInput">Bir sayı girin:</label>
+    <input type="text" id="numberInput">
+    <button onclick="checkPrime()">Kontrol Et</button>
+    <p id="result"></p>
+
+    <script>
+        function isPrime(number) {
+            if (number <= 1) {
+                return false;
+            }
+            
+            if (number <= 3) {
+                return true;
+            }
+            
+            if (number % 2 === 0 || number % 3 === 0) {
+                return false;
+            }
+            
+            for (let i = 5; i * i <= number; i += 6) {
+                if (number % i === 0 || number % (i + 2) === 0) {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        function checkPrime() {
+            const numberInput = document.getElementById("numberInput").value;
+            const number = parseInt(numberInput);
+
+            const resultElement = document.getElementById("result");
+
+            if (isNaN(number)) {
+                resultElement.textContent = "Geçerli bir sayı girmediniz.";
+            } else {
+                const isNumberPrime = isPrime(number);
+                if (isNumberPrime) {
+                    resultElement.textContent = `${number} bir asal sayıdır.`;
+                } else {
+                    resultElement.textContent = `${number} bir asal sayı değildir.`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
