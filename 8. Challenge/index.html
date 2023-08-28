@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medyan Hesaplama</title>
+</head>
+<body>
+  <h1>Medyan Hesaplama</h1>
+  <label for="numbers">Sayıları girin (virgülle ayırarak):</label>
+  <input type="text" id="numbers">
+  <button onclick="calculateMedian()">Medyanı Hesapla</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateMedian() {
+      const input = document.getElementById("numbers").value;
+      const numbers = input.split(",").map(num => parseFloat(num.trim()));
+
+      numbers.sort((a, b) => a - b);
+
+      let median;
+
+      if (numbers.length % 2 === 0) {
+        const middleIndex = numbers.length / 2;
+        median = (numbers[middleIndex - 1] + numbers[middleIndex]) / 2;
+      } else {
+        const middleIndex = Math.floor(numbers.length / 2);
+        median = numbers[middleIndex];
+      }
+
+      const resultElement = document.getElementById("result");
+      resultElement.textContent = `Medyan: ${median}`;
+    }
+  </script>
+</body>
+</html>
