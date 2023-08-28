@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futbol Maçı Puan Hesaplama</title>
+</head>
+<body>
+<h1>Futbol Maçı Puan Hesaplama</h1>
+<label for="isabet3Pointer">3 puanlık atışlarda kaç kez isabet edildi:</label>
+<input type="number" id="isabet3Pointer" min="0" value="0">
+<br>
+<label for="isabet2Pointer">2 puanlık atışlarda kaç kez isabet edildi:</label>
+<input type="number" id="isabet2Pointer" min="0" value="0">
+<br>
+<button onclick="hesapla()">Toplam Puanı Hesapla</button>
+<p>Toplam puan: <span id="totalPoints">0</span></p>
+
+<script>
+function hesapla() {
+  const pointsFor3Pointer = 3;
+  const pointsFor2Pointer = 2;
+  
+  const isabet3PointerInput = document.getElementById("isabet3Pointer");
+  const isabet2PointerInput = document.getElementById("isabet2Pointer");
+  const totalPointsElement = document.getElementById("totalPoints");
+  
+  const isabet3Pointer = parseInt(isabet3PointerInput.value);
+  const isabet2Pointer = parseInt(isabet2PointerInput.value);
+  
+  const totalPoints = (pointsFor3Pointer * isabet3Pointer) + (pointsFor2Pointer * isabet2Pointer);
+  
+  totalPointsElement.textContent = totalPoints;
+}
+</script>
+</body>
+</html>
+
+
