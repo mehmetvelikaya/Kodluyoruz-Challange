@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelime Sayısını Hesapla</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+  <h1>Kelime Sayısını Hesapla</h1>
+  <label for="text">Metin girin:</label>
+  <textarea id="text" rows="4" cols="50"></textarea>
+  <button onclick="calculateWordCount()">Kelime Sayısını Hesapla</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateWordCount() {
+      const inputText = document.getElementById("text").value;
+      
+      // Metni boşluk karakterlerine göre böler ve boşlukları temizler
+      const words = inputText.trim().split(/\s+/);
+      
+      const wordCount = words.length;
+      
+      const resultElement = document.getElementById("result");
+      resultElement.textContent = `Metindeki kelime sayısı: ${wordCount}`;
+    }
+  </script>
+</body>
+</html>
