@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yol Hesaplama</title>
+</head>
+<body>
+    <h1>Yol Hesaplama</h1>
+    <label for="distanceInput">Yolu girin (km):</label>
+    <input type="text" id="distanceInput">
+    <button onclick="calculateTime()">Hesapla</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateTime() {
+            const distanceInput = document.getElementById("distanceInput").value;
+            const distance = parseInt(distanceInput);
+
+            const speed = 60; // km/h
+
+            if (isNaN(distance)) {
+                document.getElementById("result").textContent = "Geçerli bir mesafe girmediniz.";
+            } else {
+                const time = distance / speed;
+                document.getElementById("result").textContent = `Araba ${time} saatte ${distance} km yol alır.`;
+            }
+        }
+    </script>
+</body>
+</html>
