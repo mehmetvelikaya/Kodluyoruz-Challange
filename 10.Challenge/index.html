@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>En Büyük Sayıyı Bulma</title>
+</head>
+<body>
+    <h1>En Büyük Sayıyı Bulma</h1>
+    <label for="numbersInput">Sayıları aralarında boşluk bırakarak girin:</label>
+    <input type="text" id="numbersInput">
+    <button onclick="findMax()">Bul</button>
+    <p id="result"></p>
+
+    <script>
+        function findMax() {
+            const numbersInput = document.getElementById("numbersInput").value;
+            const numberArray = numbersInput.split(" ").map(Number);
+
+            if (numberArray.some(isNaN)) {
+                document.getElementById("result").textContent = "Geçerli sayılar giriniz.";
+            } else {
+                const maxNumber = Math.max(...numberArray);
+                document.getElementById("result").textContent = `En büyük sayı: ${maxNumber}`;
+            }
+        }
+    </script>
+</body>
+</html>
