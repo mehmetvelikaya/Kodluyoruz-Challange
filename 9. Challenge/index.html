@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Çift Tek Kontrolü</title>
+</head>
+<body>
+    <h1>Çift Tek Kontrolü</h1>
+    <label for="numberInput">Bir sayı girin:</label>
+    <input type="text" id="numberInput">
+    <button onclick="checkEvenOdd()">Kontrol Et</button>
+    <p id="result"></p>
+
+    <script>
+        function checkEvenOdd() {
+            const numberInput = document.getElementById("numberInput").value;
+            const number = parseInt(numberInput);
+
+            if (isNaN(number)) {
+                document.getElementById("result").textContent = "Geçerli bir sayı girmediniz.";
+            } else {
+                if (number % 2 === 0) {
+                    document.getElementById("result").textContent = `${number} çift bir sayıdır.`;
+                } else {
+                    document.getElementById("result").textContent = `${number} tek bir sayıdır.`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
