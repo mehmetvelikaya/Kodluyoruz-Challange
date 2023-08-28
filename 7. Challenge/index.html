@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basamaklarının Toplamını Hesapla</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+  <h1>Basamaklarının Toplamını Hesapla</h1>
+  <label for="number">Bir sayı girin:</label>
+  <input type="number" id="number">
+  <button onclick="calculateSum()">Toplamı Hesapla</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateSum() {
+      const inputNumber = document.getElementById("number").value;
+      const number = parseInt(inputNumber);
+
+      if (isNaN(number)) {
+        alert("Lütfen geçerli bir sayı girin.");
+        return;
+      }
+
+      let sum = 0;
+      let digits = Array.from(String(Math.abs(number)), Number);
+
+      for (let digit of digits) {
+        sum += digit;
+      }
+
+      const resultElement = document.getElementById("result");
+      resultElement.textContent = `Sayının basamaklarının toplamı: ${sum}`;
+    }
+  </script>
+</body>
+</html>
