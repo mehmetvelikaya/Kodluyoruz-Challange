@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Problemi Çözümü</title>
+</head>
+<body>
+
+<h1>Top Problemi Çözümü</h1>
+
+<label for="x">Kırmızı Top Sayısı (x):</label>
+<input type="number" id="x" value="3"><br><br>
+
+<label for="y">Yeşil Top Sayısı (y):</label>
+<input type="number" id="y" value="4"><br><br>
+
+<label for="z">Mavi Top Sayısı (z):</label>
+<input type="number" id="z" value="5"><br><br>
+
+<label for="t">Çekilen Top Sayısı (t):</label>
+<input type="number" id="t" value="2"><br><br>
+
+<button onclick="hesapla()">Olasılığı Hesapla</button><br><br>
+
+<div id="sonuc"></div>
+
+<script>
+function hesapla() {
+    var x = parseInt(document.getElementById("x").value);
+    var y = parseInt(document.getElementById("y").value);
+    var z = parseInt(document.getElementById("z").value);
+    var t = parseInt(document.getElementById("t").value);
+    
+    var toplam_top_sayisi = x + y + z;
+    
+    // Aynı renk olma durumu için kombinasyon hesabı kullanılır.
+    var ayni_renk_olma_olasiligi = (kombinasyon(x, t) * kombinasyon(y, 0) * kombinasyon(z, t)) / kombinasyon(toplam_top_sayisi, t);
+    
+    document.getElementById("sonuc").innerHTML = "Aynı renk olma olasılığı: " + ayni_renk_olma_olasiligi.toFixed(4);
+}
+
+function faktoriyel(n) {
+    if (n === 0) {
+        return 1;
+    }
+    return n * faktoriyel(n-1);
+}
+
+function kombinasyon(n, r) {
+    return faktoriyel(n) / (faktoriyel(r) * faktoriyel(n-r));
+}
+</script>
+
+</body>
+</html>
